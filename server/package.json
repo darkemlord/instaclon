@@ -1,0 +1,15 @@
+{
+  "name": "instaclon",
+  "version": "1.0.0",
+  "description": "instaclon app server",
+  "main": "index.js",
+  "author": "Emanuel Caro",
+  "license": "MIT",
+  "scripts": {
+    "dev": "node ./index.js"
+  },
+  "dependencies": {
+    "dotenv": "^10.0.0",
+    "mongoose": "^6.1.1"
+  }
+}
