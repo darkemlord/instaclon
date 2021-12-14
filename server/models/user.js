@@ -35,7 +35,7 @@ const userSchema = Schema({
     require: true,
     trim: true
   },
-  createAt: {
+  createdAt: {
     type: Date,
     default: Date.now()
   }

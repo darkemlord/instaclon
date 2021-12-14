@@ -29,6 +29,8 @@ const server = () => {
   });
   serverApollo.listen().then(({ url }) => {
     console.log(url)
+    console.log('==============================================')
     console.log(`server ready on ${url}`)
+    console.log('==============================================')
   })
 }
