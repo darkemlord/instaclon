@@ -26,7 +26,7 @@ const typeDefs = gql`
   }
 
   type Mutation {
-    #User
+    # User
     register(input: UserInput): User
   }
 `;

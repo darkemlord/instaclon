@@ -3,15 +3,15 @@ const resolver = {
   Query: {
     // User
     getUser: () => {
-      console.log('obteniendo usuario')
-      return null;
-    }
+      console.log('hello')
+      return null
+    },
   },
   Mutation: {
     //User
     register: (_, { input }) => {
       console.log('corriendo')
-      return input
+      return null
     }
   }
 }
