@@ -1,4 +1,5 @@
-const { gql } = require('apollo-server');
+// const { gql } = require('apollo-server');
+const gql = require('graphql-tag');
 
 const typeDefs = gql`
   type User {
@@ -26,7 +27,6 @@ const typeDefs = gql`
   }
 
   type Mutation {
-    # User
     register(input: UserInput): User
   }
 `;
