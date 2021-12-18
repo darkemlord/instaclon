@@ -16,6 +16,7 @@
     "dotenv": "^10.0.0",
     "graphql": "^16.1.0",
     "graphql-upload": "^13.0.0",
+    "jsonwebtoken": "^8.5.1",
     "mongoose": "^6.1.1"
   },
   "devDependencies": {
