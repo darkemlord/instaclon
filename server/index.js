@@ -1,13 +1,14 @@
+const { ApolloServer } = require('apollo-server-express');
 const mongoose = require('mongoose');
-const { ApolloServer } = require('apollo-server')
-require('dotenv').config( { path: ".env" }); //calling the ENV
+const express = require('express');
 const typeDefs = require('./gql/schema');
-const resolver = require('./gql/resolver');
+const resolvers = require('./gql/resolvers');
+require('dotenv').config( { path: ".env" }); //calling the ENV
 
 mongoose.connect(process.env.BBDD, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
-}, (err, res) => {
+}, (err, _) => {
   if(err){
     console.log('connection error')
     console.log(err)
@@ -17,19 +18,18 @@ mongoose.connect(process.env.BBDD, {
   }
 })
 
-const server = () => {
+const server = async () => {
+  const app = express();
   const serverApollo = new ApolloServer({
-    cors: {
-        "origin": "https://studio.apollographql.com",
-        "credentials": true
-    },
     typeDefs,
-    resolver,
+    resolvers
   });
-  serverApollo.listen().then(({ url }) => {
-    console.log(url)
-    console.log('==============================================')
-    console.log(`server ready on ${url}`)
-    console.log('==============================================')
+  await serverApollo.start();
+  serverApollo.applyMiddleware({app});
+  app.use((_,res) => {
+    res.send("server started succesfully")
+  })
+  app.listen({ port: 4000 }, () => {
+    console.log(`server running at http://localhost:4000/graphql`)
   })
 }
