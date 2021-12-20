@@ -10,8 +10,13 @@ export const RegisterForm = (props) => {
   const formik = useFormik({
     initialValues: initialValues() ,
     validationSchema: Yup.object({
-      name: Yup.string().required(true),
-      username: Yup.string().required(true),
+      name: Yup.string().required('Name is required'),
+      username: Yup.string().matches(/^[a-zA-Z0-9-]*$/, 'Username shouldn\'t contain spaces').required(true),
+      email: Yup.string().email('email is not valid').required('Email is required'),
+      password: Yup.string().required('password is required')
+      .oneOf([Yup.ref('confirmPassword')], 'Password doesn\'t match'),
+      confirmPassword: Yup.string().required('password is required')
+      .oneOf([Yup.ref('password')], 'Password doesn\'t match')
     }),
     onSubmit: (formValue) => {
       console.log('Form sended!')
@@ -30,6 +35,7 @@ export const RegisterForm = (props) => {
           name="name"
           onChange={formik.handleChange}
           value={formik.values.name}
+          error={formik.errors.name && true}
           />
         <Form.Input
           type="text"
@@ -37,6 +43,7 @@ export const RegisterForm = (props) => {
           name="username"
           onChange={formik.handleChange}
           value={formik.values.username}
+          error={formik.errors.username && true}
         />
         <Form.Input
           type="text"
@@ -44,6 +51,7 @@ export const RegisterForm = (props) => {
           name="email"
           onChange={formik.handleChange}
           value={formik.values.email}
+          error={formik.errors.email && true}
         />
         <Form.Input
           type="password"
@@ -52,6 +60,7 @@ export const RegisterForm = (props) => {
           autoComplete="on"
           onChange={formik.handleChange}
           value={formik.values.password}
+          error={formik.errors.password && true}
         />
         <Form.Input
           type="password"
@@ -60,6 +69,7 @@ export const RegisterForm = (props) => {
           autoComplete="on"
           onChange={formik.handleChange}
           value={formik.values.confirmPassword}
+          error={formik.errors.confirmPassword && true}
         />
         <Button className='btn-submit' type="submit">Sign In</Button>
       </Form>
