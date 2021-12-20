@@ -7,26 +7,29 @@ export const RegisterForm = (props) => {
   const { setShowLogin } = props;
 
   const formik = useFormik({
-    initialValue: {
-      name: '',
-      username: '',
-      email: '',
-      password: '',
-      confirmPassword: '',
+    initialValues: {
+      name: "",
+      username: "",
+      email: "",
+      password: "",
+      confirmPassword: "",
+    },
+    validationSchema: null,
+    onSubmit: (formValue) => {
+      console.log('Form sended!')
+      console.log(formValue)
     }
   })
-  const onSubmit = () => {
-    console.log('formulario enviado')
-  }
+
   return (
     <>
       <h2 className='register-form-title'>Sign in here</h2>
-      <Form className='register-form' onSubmit={onSubmit}>
-        <Form.Input type="text" placeholder = "Name" name="name"/>
-        <Form.Input type="text" placeholder = "Username" name="username"/>
-        <Form.Input type="text" placeholder = "Email" name="email"/>
-        <Form.Input type="password" placeholder = "Password" name="password" autoComplete="on"/>
-        <Form.Input type="password" placeholder = "Confirm Password" name="confirmPassword" autoComplete="on"/>
+      <Form className='register-form' onSubmit={formik.handleSubmit}>
+        <Form.Input type="text" placeholder = "Name" name="name" onChange={formik.handleChange}/>
+        <Form.Input type="text" placeholder = "Username" name="username" onChange={formik.handleChange}/>
+        <Form.Input type="text" placeholder = "Email" name="email" onChange={formik.handleChange}/>
+        <Form.Input type="password" placeholder = "Password" name="password" autoComplete="on" onChange={formik.handleChange}/>
+        <Form.Input type="password" placeholder = "Confirm Password" name="confirmPassword" autoComplete="on" onChange={formik.handleChange}/>
         <Button className='btn-submit' type="submit">Sign In</Button>
       </Form>
     </>
