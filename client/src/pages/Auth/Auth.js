@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Container, Image } from 'semantic-ui-react';
 import instaclone from '../../assets/images/instaclone.png';
 import './Auth.scss';
+import RegisterForm from '../../components/Auth/RegisterForm/RegisterForm'
 
 export const Auth = () => {
   const [ showLogin, setShowLogin] = useState(true)
@@ -12,7 +13,7 @@ export const Auth = () => {
         {showLogin ? (
           <p>Formlario de Login</p>
         ):(
-          <p>Formlario de Registro</p>
+          <RegisterForm />
         )}
       </div>
       <div className="change-form">
