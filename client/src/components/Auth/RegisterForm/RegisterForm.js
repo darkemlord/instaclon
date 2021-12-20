@@ -7,7 +7,7 @@ export const RegisterForm = (props) => {
   const { setShowLogin } = props;
 
   const formik = useFormik({
-    initialValues: initialValue() ,
+    initialValues: initialValues() ,
     validationSchema: null,
     onSubmit: (formValue) => {
       console.log('Form sended!')
@@ -32,7 +32,7 @@ export const RegisterForm = (props) => {
 
 export default RegisterForm;
 
-function initialValue(){
+function initialValues(){
     return {
       name: "",
       username: "",
