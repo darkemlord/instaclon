@@ -1,9 +1,20 @@
 import React from 'react';
-import {Form, Button} from 'semantic-ui-react'
-import './RegisterForm.scss'
+import {Form, Button} from 'semantic-ui-react';
+import './RegisterForm.scss';
+import { useFormik } from 'formik';
 
 export const RegisterForm = (props) => {
-  const { setShowLogin } = props
+  const { setShowLogin } = props;
+
+  const formik = useFormik({
+    initialValue: {
+      name: '',
+      username: '',
+      email: '',
+      password: '',
+      confirmPassword: '',
+    }
+  })
   const onSubmit = () => {
     console.log('formulario enviado')
   }
