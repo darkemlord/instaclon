@@ -4,11 +4,31 @@ import instaclone from '../../assets/images/instaclone.png';
 import './Auth.scss';
 
 export const Auth = () => {
+  const [ showLogin, setShowLogin] = useState(true)
   return (
     <Container fluid className="auth">
       <Image src={instaclone}/>
       <div className="container-form">
-        <h1>hello world</h1>
+        {showLogin ? (
+          <p>Formlario de Login</p>
+        ):(
+          <p>Formlario de Registro</p>
+        )}
+      </div>
+      <div className="change-form">
+        <p>
+        { showLogin ? (
+          <>
+            You haven't an account?
+            <span onClick={() => setShowLogin(!showLogin)}>Register!</span>
+          </>
+        ) : (
+          <>
+            User your account
+            <span onClick={() => setShowLogin(!showLogin)}>Login</span>
+          </>
+        )}
+        </p>
       </div>
     </Container>
   )

@@ -21,3 +21,22 @@ img {
   margin-top: 50px;
   border-radius: 5px;
 }
+
+.change-form {
+  margin-top: 10px;
+  width: 400px;
+  background-color: $background-light;
+  padding: 20px 50px;
+  border: 1px solid $border-grey;
+  text-align: center;
+  border-radius: 5px;
+}
+
+span{
+  color: $action;
+  font-weight: bold;
+  &:hover{
+    cursor: pointer;
+    text-decoration: underline;
+  }
+}
