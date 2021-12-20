@@ -5,7 +5,7 @@ import './Auth.scss';
 import RegisterForm from '../../components/Auth/RegisterForm/RegisterForm'
 
 export const Auth = () => {
-  const [ showLogin, setShowLogin] = useState(true)
+  const [ showLogin, setShowLogin] = useState(false)
   return (
     <Container fluid className="auth">
       <Image src={instaclone}/>
@@ -13,7 +13,7 @@ export const Auth = () => {
         {showLogin ? (
           <p>Formlario de Login</p>
         ):(
-          <RegisterForm />
+          <RegisterForm setShowLogin={setShowLogin}/>
         )}
       </div>
       <div className="change-form">
@@ -21,7 +21,7 @@ export const Auth = () => {
         { showLogin ? (
           <>
             You haven't an account?
-            <span onClick={() => setShowLogin(!showLogin)}>Register!</span>
+            <span onClick={() => setShowLogin(!showLogin)}>Sign in!</span>
           </>
         ) : (
           <>
