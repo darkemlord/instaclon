@@ -3,9 +3,12 @@ import {Form, Button} from 'semantic-ui-react';
 import './RegisterForm.scss';
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
+import { useMutation} from '@apollo/client';
+import { REGISTER } from '../../../gql/user'
 
 export const RegisterForm = (props) => {
   const { setShowLogin } = props;
+  const [ register ] = useMutation(REGISTER)
 
   const formik = useFormik({
     initialValues: initialValues() ,
@@ -18,9 +21,19 @@ export const RegisterForm = (props) => {
       confirmPassword: Yup.string().required('password is required')
       .oneOf([Yup.ref('password')], 'Password doesn\'t match')
     }),
-    onSubmit: (formValue) => {
-      console.log('Form sended!')
-      console.log(formValue)
+    onSubmit: async (formData) => {
+      try{
+        const newUser = formData;
+        delete newUser.confirmPassword;
+        const result = await register({
+          variables: {
+            input: newUser
+          }
+        });
+        console.log(result)
+      }catch(err){
+        console.log(err)
+      }
       formik.handleReset();
     }
   })
