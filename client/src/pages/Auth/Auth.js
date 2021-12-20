@@ -21,12 +21,12 @@ export const Auth = () => {
         { showLogin ? (
           <>
             You haven't an account?
-            <span onClick={() => setShowLogin(!showLogin)}>Sign in!</span>
+            <span onClick={() => setShowLogin(!showLogin)}> Sign in! </span>
           </>
         ) : (
           <>
             User your account
-            <span onClick={() => setShowLogin(!showLogin)}>Login</span>
+            <span onClick={() => setShowLogin(!showLogin)}> Login </span>
           </>
         )}
         </p>
