@@ -26,7 +26,8 @@ export const RegisterForm = (props) => {
       try{
         const newUser = formData;
         delete newUser.confirmPassword;
-        await register({
+        // eslint-disable-next-line no-unused-vars
+        const result = await register({
           variables: {
             input: newUser
           },
