@@ -26,7 +26,7 @@ export const RegisterForm = (props) => {
       try{
         const newUser = formData;
         delete newUser.confirmPassword;
-        const result = await register({
+        await register({
           variables: {
             input: newUser
           },
