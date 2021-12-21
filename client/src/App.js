@@ -11,7 +11,15 @@ function App() {
     < ApolloProvider client={client} >
       {!auth ? <Auth /> : <h1>Estas logueado</h1>}
       <ToastContainer
-
+        position="top-right"
+        autoClose={5000}
+        hideProgressBar
+        newestOnTop
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
       />
     </ApolloProvider>
   );
