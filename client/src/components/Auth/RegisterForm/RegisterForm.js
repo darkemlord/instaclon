@@ -34,6 +34,7 @@ export const RegisterForm = (props) => {
         console.log(result)
       }catch(err){
         console.log(err)
+        toast.error(err.message)
       }
       formik.handleReset();
     }
