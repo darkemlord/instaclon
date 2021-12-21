@@ -32,7 +32,8 @@ export const RegisterForm = (props) => {
             input: newUser
           },
         });
-        toast.success('user successfully signed in')
+        toast.success('user successfully signed in');
+        setShowLogin(true);
       }catch(err){
         console.log(err)
         toast.error(err.message)
