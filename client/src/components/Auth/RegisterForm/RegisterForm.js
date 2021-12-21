@@ -29,9 +29,9 @@ export const RegisterForm = (props) => {
         const result = await register({
           variables: {
             input: newUser
-          }
+          },
         });
-        console.log(result)
+        toast.success('user successfully signed in')
       }catch(err){
         console.log(err)
         toast.error(err.message)
