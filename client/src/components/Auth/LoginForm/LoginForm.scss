@@ -1,6 +1,11 @@
 @import '../../../scss/index.scss';
 
 .login-form {
+  input {
   padding: 15px !important;
-  background-color: #f9f9f9;
+  background-color: #f9f9f9 !important;
+  }
+  h2{
+    text-align: center;
+  }
 }
