@@ -8,9 +8,12 @@ import { LOGIN } from '../../../gql/user';
 import { setToken } from '../../../utils/token';
 import { useAuth } from '../../../hooks/useAuth';
 
+
+
 const LoginForm = () => {
   const [login] = useMutation(LOGIN)
   const [error, setError] = useState('');
+  const { setUser } = useAuth();
 
   const formik = useFormik({
     initialValues: initialValues(),
@@ -28,6 +31,7 @@ const LoginForm = () => {
         });
         const { token } = data.login
         setToken(token);
+        setUser(token);
       }
       catch(err){
         setError(err.message)

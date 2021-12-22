@@ -1,4 +1,4 @@
-import React,{ useState, useEffect } from 'react';
+import React,{ useState, useEffect, useMemo } from 'react';
 import client from './config/apollo';
 import { ApolloProvider } from '@apollo/client'
 import Auth from './pages/Auth';
@@ -8,9 +8,6 @@ import { AuthContext} from './context/AuthContext';
 
 function App() {
   const [auth, setAuth ] = useState(undefined);
-  const authData = {
-    name: 'Emanuel'
-  }
 
   useEffect(() => {
     const token = getToken();
@@ -20,6 +17,21 @@ function App() {
       setAuth(token)
     }
   }, []);
+
+  const logout = () => {
+    console.log('log out')
+  }
+
+  const setUser = (user) => {
+    setAuth(user)
+  }
+
+  const authData = useMemo(() => ({
+    auth,
+    logout,
+    setUser,
+  }), [auth])
+
   return (
     <AuthContext.Provider value={authData}>
       < ApolloProvider client={client} >
