@@ -2,11 +2,15 @@ import React from 'react';
 import { Form, Button} from 'semantic-ui-react';
 import './LoginForm.scss';
 import { useFormik } from 'formik';
+import * as Yup from 'yup';
 
 const LoginForm = () => {
   const formik = useFormik({
     initialValues: initialValues(),
-    validationSchema: null,
+    validationSchema: Yup.object({
+      email: Yup.string().email().required('Email is required'),
+      password: Yup.string().password().required('Password is required')
+    }),
     onSubmit: (formData) => {
       console.log(formData)
     }
