@@ -16,7 +16,7 @@ function App() {
     } else {
       setAuth(token)
     }
-  }, [])
+  }, []);
   return (
     < ApolloProvider client={client} >
       {!auth ? <Auth /> : <h1>Estas logueado</h1>}
