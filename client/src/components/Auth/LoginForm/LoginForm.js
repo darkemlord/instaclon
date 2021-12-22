@@ -9,7 +9,7 @@ const LoginForm = () => {
     initialValues: initialValues(),
     validationSchema: Yup.object({
       email: Yup.string().email().required('Email is required'),
-      password: Yup.string().password().required('Password is required')
+      password: Yup.string().required('Password is required')
     }),
     onSubmit: (formData) => {
       console.log(formData)
@@ -24,6 +24,7 @@ const LoginForm = () => {
         name="email"
         value={formik.values.email}
         onChange={formik.handleChange}
+        error={formik.errors.email && true}
       >
       </Form.Input>
 
@@ -34,6 +35,7 @@ const LoginForm = () => {
         onChange={formik.handleChange}
         value={formik.values.password}
         autoComplete="on"
+        error={formik.errors.password && true }
       ></Form.Input>
 
       <Button type="submit" className='btn-submit'>
