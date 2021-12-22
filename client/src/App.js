@@ -6,7 +6,6 @@ import { ToastContainer } from 'react-toastify';
 import { getToken } from './utils/token'
 import { AuthContext} from './context/AuthContext';
 
-
 function App() {
   const [auth, setAuth ] = useState(undefined);
   const authData = {
@@ -22,7 +21,7 @@ function App() {
     }
   }, []);
   return (
-    <AuthContext value={authData}>
+    <AuthContext.Provider value={authData}>
       < ApolloProvider client={client} >
         {!auth ? <Auth /> : <h1>Estas logueado</h1>}
         <ToastContainer
@@ -37,7 +36,7 @@ function App() {
           pauseOnHover
           />
       </ApolloProvider>
-    </AuthContext>
+    </AuthContext.Provider>
   );
 }
 
