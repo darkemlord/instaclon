@@ -3,8 +3,12 @@ import { Form, Button} from 'semantic-ui-react';
 import './LoginForm.scss';
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
+import { useMutation } from '@apollo/client';
+import { LOGIN } from '../../../gql/user'
 
 const LoginForm = () => {
+  const [login] = useMutation(LOGIN)
+
   const formik = useFormik({
     initialValues: initialValues(),
     validationSchema: Yup.object({

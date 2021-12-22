@@ -12,7 +12,7 @@ export const REGISTER = gql `
   }
 }
 `
-export const lOGIN = gql `
+export const LOGIN = gql `
   mutation Mutation($input: LoginInput) {
   login(input: $input) {
     token
