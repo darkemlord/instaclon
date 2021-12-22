@@ -4,7 +4,8 @@ import './LoginForm.scss';
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
 import { useMutation } from '@apollo/client';
-import { LOGIN } from '../../../gql/user'
+import { LOGIN } from '../../../gql/user';
+import { setToken } from '../../../utils/token';
 
 const LoginForm = () => {
   const [login] = useMutation(LOGIN)
@@ -24,7 +25,8 @@ const LoginForm = () => {
             input: formData
           }
         });
-        console.log(data)
+        const { token } = data.login
+        setToken(token);
       }
       catch(err){
         setError(err.message)
