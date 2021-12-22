@@ -15,8 +15,18 @@ const LoginForm = () => {
       email: Yup.string().email().required('Email is required'),
       password: Yup.string().required('Password is required')
     }),
-    onSubmit: (formData) => {
-      console.log(formData)
+    onSubmit: async (formData) => {
+      try{
+        const result = await login({
+          variables:{
+            input: formData
+          }
+        });
+        console.log(result)
+      }
+      catch(err){
+        console.log(err)
+      }
     }
   })
   return (
