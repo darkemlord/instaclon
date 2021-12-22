@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Form, Button} from 'semantic-ui-react';
 import './LoginForm.scss';
 import { useFormik } from 'formik';
@@ -8,6 +8,7 @@ import { LOGIN } from '../../../gql/user'
 
 const LoginForm = () => {
   const [login] = useMutation(LOGIN)
+  const [error, setError] = useState('');
 
   const formik = useFormik({
     initialValues: initialValues(),
@@ -25,6 +26,7 @@ const LoginForm = () => {
         console.log(result)
       }
       catch(err){
+        setError(err.message)
         console.log(err)
       }
     }
@@ -55,6 +57,7 @@ const LoginForm = () => {
       <Button type="submit" className='btn-submit'>
         Login
       </Button>
+      {error && <p className='submit-error'>{error}</p>}
     </Form>
   )
 }
