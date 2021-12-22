@@ -6,7 +6,7 @@ import RegisterForm from '../../components/Auth/RegisterForm/RegisterForm';
 import LoginForm from '../../components/Auth/LoginForm/LoginForm';
 
 export const Auth = () => {
-  const [ showLogin, setShowLogin] = useState(false)
+  const [ showLogin, setShowLogin] = useState(true)
   return (
     <Container fluid className="auth">
       <Image src={instaclone}/>
