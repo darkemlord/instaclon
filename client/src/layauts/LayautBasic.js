@@ -1,10 +1,13 @@
 import React from 'react';
-import { container } from 'semantic-ui-react';
+import { Container } from 'semantic-ui-react';
 
-export const LayautBasic = () => {
+export const LayautBasic = (props) => {
   return (
-    <div>
-
-    </div>
+    <>
+    <h1>Header</h1>
+    <Container className='layout-basic'>{props.children}</Container>
+    </>
   )
 }
+
+export default LayautBasic;
