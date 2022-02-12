@@ -8,16 +8,15 @@ import Avatar from '../../../assets/images/avatar.png';
 
 const RightHeader = () => {
 
-  const data = useAuth();
+  const { auth } = useAuth();
 
-  console.log(data)
   return (
     <div className='right-header'>
       <Link to='/'>
         <Icon name='home' />
       </Link>
       <Icon name='plus'/>
-      <Link to='/'>
+      <Link to={auth.username}>
         <Image src={Avatar} avatar/>
       </Link>
     </div>
