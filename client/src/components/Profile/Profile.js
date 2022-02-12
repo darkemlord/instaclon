@@ -34,6 +34,10 @@ const Profile = (props) => {
             )
             }
             {/* Here we have the description condition */}
+            {getUser.description && (
+              <p>{getUser.description}</p>
+            )
+            }
           </div>
 
         </Grid.Column>
