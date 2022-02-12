@@ -31,6 +31,9 @@ const Profile = (props) => {
         setChildrenModal(<AvatarForm setShowModal={setShowModal}/>);
         setShowModal(true);
         break;
+      case 'header':
+        console.log('emanuel')
+        break;
       default:
         break;
     }
