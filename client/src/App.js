@@ -33,6 +33,8 @@ function App() {
     setUser,
   }), [auth])
 
+  if(auth === undefined) return null;
+
   return (
     <AuthContext.Provider value={authData}>
       < ApolloProvider client={client} >
