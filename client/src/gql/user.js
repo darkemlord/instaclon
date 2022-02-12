@@ -19,3 +19,16 @@ export const LOGIN = gql `
   }
 }
 `
+export const GET_USER = gql `
+  query GetUser($id: ID, $username: String) {
+  getUser(id: $id, username: $username) {
+    id
+    username
+    email
+    name
+    avatar
+    siteWeb
+    description
+  }
+}
+`
