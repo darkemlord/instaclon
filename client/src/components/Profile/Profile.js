@@ -28,7 +28,7 @@ const Profile = (props) => {
     switch(type) {
       case 'avatar':
         setTitleModal('Change Profile Picture');
-        setChildrenModal(<AvatarForm />);
+        setChildrenModal(<AvatarForm setShowModal={setShowModal}/>);
         setShowModal(true);
         break;
       default:

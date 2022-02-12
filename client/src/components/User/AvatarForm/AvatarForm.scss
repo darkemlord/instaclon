@@ -8,5 +8,14 @@
     border-radius: 1px solid $border-grey;
     padding: 18px 0;
     margin-top: 10px;
+
+    &:nth-child(1) {
+      color: $action;
+    }
+
+    &:nth-child(2) {
+        color: $danger;
+    }
   }
+
 }
