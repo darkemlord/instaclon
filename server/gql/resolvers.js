@@ -2,9 +2,7 @@ const userController = require('../controllers/User');
 
 const resolvers = {
   Query: {
-    getUser: () => {
-      userController.getUser();
-    },
+    getUser: (_, { id, username }) => userController.getUser(id, username),
   },
   Mutation: {
     register: (_, { input }) => userController.register(input),

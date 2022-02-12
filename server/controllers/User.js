@@ -48,9 +48,12 @@ const login = async (input) => {
   }
 
 }
-const getUser = () =>{
-  console.log('looking for user')
-  return null;
+const getUser = async (id, username) => {
+  let user = null;
+  if(id) user = await User.findById(id);
+  if(username) user = await User.findOne({ username });
+  if(!user) throw new Error('the user does not exist');
+  return user
 }
 module.exports = {
   register, getUser, login
