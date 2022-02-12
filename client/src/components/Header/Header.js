@@ -1,5 +1,6 @@
 import React from 'react';
 import { Container, Grid, Image } from 'semantic-ui-react';
+import Logo from '../../assets/images/instaclone.png'
 import './Header.scss';
 
 const Header = () => {
@@ -8,7 +9,7 @@ const Header = () => {
       <Container>
         <Grid>
           <Grid.Column width={3} className='header__logo'>
-            <p>Logo</p>
+            <Image src={Logo} alt='instaclone' />
           </Grid.Column>
 
           <Grid.Column width={10} className='header__logo'>
