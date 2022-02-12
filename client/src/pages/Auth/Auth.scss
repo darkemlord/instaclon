@@ -30,13 +30,12 @@ img {
   border: 1px solid $border-grey;
   text-align: center;
   border-radius: 5px;
-}
-
-span{
+  span{
   color: $action;
   font-weight: bold;
   &:hover{
     cursor: pointer;
     text-decoration: underline;
   }
+}
 }
