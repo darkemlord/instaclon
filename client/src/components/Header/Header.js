@@ -12,11 +12,11 @@ const Header = () => {
             <Image src={Logo} alt='instaclone' />
           </Grid.Column>
 
-          <Grid.Column width={10} className='header__logo'>
+          <Grid.Column width={10}>
             <p>Search</p>
           </Grid.Column>
 
-          <Grid.Column width={3} className='header__logo'>
+          <Grid.Column width={3}>
             <p>Options</p>
           </Grid.Column>
         </Grid>
