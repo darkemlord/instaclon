@@ -5,10 +5,13 @@ import { GET_USER } from '../../gql/user';
 import UserNotFound from '../UserNotFound';
 import ImageNoFound from '../../assets/images/avatar.png';
 import ModalBasic from '../ModalBasic/ModalBasic';
+import AvatarForm from '../User/AvatarForm/AvatarForm';
 import './Profile.scss';
 
 const Profile = (props) => {
-  const [ showModal, setShowModal ] = useState(false)
+  const [ showModal, setShowModal ] = useState(false);
+  const [titleModal, setTitleModal] = useState('');
+  const [childrenModal, setChildrenModal] = useState(null);
   const { username } = props;
   const { data, loading, error } = useQuery(GET_USER, {
     variables: { username }
@@ -19,11 +22,23 @@ const Profile = (props) => {
 
   const { getUser } = data
   // console.log(getUser)
+
+  const handlerModal = (type) => {
+    switch(type) {
+      case 'avatar':
+        setTitleModal('Change Profile Picture');
+        setChildrenModal(<AvatarForm />);
+        setShowModal(true);
+        break;
+      default:
+        break;
+    }
+  }
   return (
     <>
       <Grid className='profile'>
         <Grid.Column width={5} className='profile__left'>
-          <Image src={ImageNoFound} avatar onClick={() => setShowModal(true)}/>
+          <Image src={ImageNoFound} avatar onClick={() => handlerModal('avatar')}/>
         </Grid.Column>
 
         <Grid.Column width={11} className='profile__right'>
@@ -44,10 +59,8 @@ const Profile = (props) => {
           </div>
         </Grid.Column>
       </Grid>
-      <ModalBasic show={showModal} setShow={setShowModal} title='upload avatar'>
-        <p>Options...</p>
-        <p>Options...</p>
-        <p>Options...</p>
+      <ModalBasic show={showModal} setShow={setShowModal} title={titleModal}>
+        {childrenModal}
       </ModalBasic>
     </>
   )
