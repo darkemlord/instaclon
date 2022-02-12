@@ -1,9 +1,20 @@
-import React from 'react'
+import React from 'react';
+import './ModalBasic.scss';
+import { Modal } from 'semantic-ui-react';
 
-const ModalBasic = () => {
+const ModalBasic = (props) => {
+  const { show, setShow, title, children } = props;
+
+  const onClose = () => {
+    setShow(false)
+  }
+
   return (
-    <div>ModalBasic</div>
-  )
+    <Modal size="mini" open={show} onClose={onClose} className="modal-basic">
+      {title && <Modal.Header>{title}</Modal.Header>}
+      {children}
+    </Modal>
+  );
 }
 
 export default ModalBasic;
