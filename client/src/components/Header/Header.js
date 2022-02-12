@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { Container, Grid, Image } from 'semantic-ui-react';
 import Logo from '../../assets/images/instaclone.png'
 import './Header.scss';
