@@ -6,12 +6,14 @@ import UserNotFound from '../UserNotFound';
 import ImageNoFound from '../../assets/images/avatar.png';
 import ModalBasic from '../ModalBasic/ModalBasic';
 import AvatarForm from '../User/AvatarForm/AvatarForm';
+import { useAuth } from '../../hooks/useAuth';
 import './Profile.scss';
 
 const Profile = (props) => {
   const [ showModal, setShowModal ] = useState(false);
   const [titleModal, setTitleModal] = useState('');
   const [childrenModal, setChildrenModal] = useState(null);
+  const { auth } = useAuth();
   const { username } = props;
   const { data, loading, error } = useQuery(GET_USER, {
     variables: { username }
@@ -38,7 +40,7 @@ const Profile = (props) => {
     <>
       <Grid className='profile'>
         <Grid.Column width={5} className='profile__left'>
-          <Image src={ImageNoFound} avatar onClick={() => handlerModal('avatar')}/>
+          <Image src={ImageNoFound} avatar onClick={() => username === auth.username && handlerModal('avatar')}/>
         </Grid.Column>
 
         <Grid.Column width={11} className='profile__right'>
