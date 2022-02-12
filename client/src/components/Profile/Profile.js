@@ -20,11 +20,22 @@ const Profile = (props) => {
     <>
       <Grid className='profile'>
         <Grid.Column width={5} className='profile__left'>
-          <span>LEFT</span>
+          <Image src={ImageNoFound} avatar/>
         </Grid.Column>
 
         <Grid.Column width={11} className='profile__right'>
-          <span>RIGHT</span>
+          <div>Header Profile</div>
+          <div>Followers</div>
+          <div className='others'>
+            <p className='name'>{getUser.name}</p>
+            {/* here we have the website condition */}
+            {getUser.siteWeb && (
+              <a href={getUser.siteWeb} className='siteweb' target="_blank" rel='noreferrer'>{getUser.siteWeb}</a>
+            )
+            }
+            {/* Here we have the description condition */}
+          </div>
+
         </Grid.Column>
       </Grid>
     </>
