@@ -10,10 +10,13 @@ const ModalBasic = (props) => {
   }
 
   return (
-    <Modal size="mini" open={show} onClose={onClose} className="modal-basic">
-      {title && <Modal.Header>{title}</Modal.Header>}
-      {children}
-    </Modal>
+
+    <div className='modal-container'>
+      <Modal size="mini" open={show} onClose={onClose} className="modal-basic">
+        {title && <Modal.Header>{title}</Modal.Header>}
+        {children}
+      </Modal>
+    </div>
   );
 }
 

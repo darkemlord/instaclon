@@ -5,9 +5,9 @@
   flex-direction: column;
   .ui.button {
     background-color: $background-light;
-    border-radius: 1px solid $border-grey;
+    border-bottom: 1px solid $border-grey;
     padding: 18px 0;
-    margin-top: 10px;
+    border-radius: 0px;
 
     &:nth-child(1) {
       color: $action;
