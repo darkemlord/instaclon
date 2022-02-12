@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { Container, Grid, Image } from 'semantic-ui-react';
 import Logo from '../../assets/images/instaclone.png'
 import './Header.scss';
+import RightHeader from './RightHeader';
 
 const Header = () => {
   return (
@@ -20,7 +21,7 @@ const Header = () => {
           </Grid.Column>
 
           <Grid.Column width={3}>
-            <p>Options</p>
+            <RightHeader />
           </Grid.Column>
         </Grid>
       </Container>
