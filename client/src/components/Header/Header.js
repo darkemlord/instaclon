@@ -10,7 +10,9 @@ const Header = () => {
       <Container>
         <Grid>
           <Grid.Column width={3} className='header__logo'>
-            <Image src={Logo} alt='instaclone' />
+            <Link to='/'>
+              <Image src={Logo} alt='instaclone' />
+            </Link>
           </Grid.Column>
 
           <Grid.Column width={10}>
