@@ -1,5 +1,12 @@
 @import '../../../scss/index.scss';
 
 .avatar-form {
-
+  display: flex;
+  flex-direction: column;
+  .ui.button {
+    background-color: $background-light;
+    border-radius: 1px solid $border-grey;
+    padding: 18px 0;
+    margin-top: 10px;
+  }
 }
