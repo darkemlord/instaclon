@@ -3,7 +3,7 @@ import client from './config/apollo';
 import { ApolloProvider } from '@apollo/client'
 import Auth from './pages/Auth';
 import { ToastContainer } from 'react-toastify';
-import { getToken } from './utils/token'
+import { getToken, decodeToken } from './utils/token'
 import { AuthContext} from './context/AuthContext';
 import Navigation from './routes/Navigation';
 
@@ -15,7 +15,7 @@ function App() {
     if(token === null) {
       setAuth(null)
     } else {
-      setAuth(token)
+      setAuth(decodeToken(token))
     }
   }, []);
 

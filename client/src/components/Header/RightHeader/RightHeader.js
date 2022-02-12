@@ -7,13 +7,17 @@ import Avatar from '../../../assets/images/avatar.png';
 
 
 const RightHeader = () => {
+
+  const data = useAuth();
+
+  console.log(data)
   return (
     <div className='right-header'>
       <Link to='/'>
         <Icon name='home' />
       </Link>
       <Icon name='plus'/>
-      <Link>
+      <Link to='/'>
         <Image src={Avatar} avatar/>
       </Link>
     </div>
