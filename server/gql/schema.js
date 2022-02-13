@@ -43,7 +43,7 @@ const typeDefs = gql`
   type Mutation {
     register(input: UserInput): User
     login(input: LoginInput): Token
-    updateAvatar(file: Upload!): updateAvatar
+    updateAvatar(file: Upload): updateAvatar
   }
 `;
 
