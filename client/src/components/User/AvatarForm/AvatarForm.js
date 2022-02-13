@@ -12,6 +12,7 @@ const AvatarForm = (props) => {
 
   const onDrop = useCallback( async (acceptedFile) => {
     const file = acceptedFile[0];
+    console.log(file)
     try {
       const result = await updateAvatar({ variables : { file }})
       console.log(result)
