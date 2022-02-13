@@ -13,8 +13,15 @@ const typeDefs = gql`
     createdAt: String
   }
 
+  scalar Upload
+
   type Token {
     token: String
+  }
+
+  type updateAvatar {
+    status: Boolean
+    urlAvatar: String
   }
 
   input UserInput {
@@ -36,6 +43,7 @@ const typeDefs = gql`
   type Mutation {
     register(input: UserInput): User
     login(input: LoginInput): Token
+    updateAvatar(file: Upload!): updateAvatar
   }
 `;
 

@@ -55,6 +55,11 @@ const getUser = async (id, username) => {
   if(!user) throw new Error('the user does not exist');
   return user
 }
+
+const updateAvatar = async (file) => {
+  console.log(file)
+  return null
+}
 module.exports = {
-  register, getUser, login
+  register, getUser, login, updateAvatar
 };
