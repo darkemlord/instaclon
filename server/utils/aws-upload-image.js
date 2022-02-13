@@ -13,7 +13,7 @@ const s3 = new AWS.S3({
 const awsUploadImage = async (file, filePath) => {
   const params = {
     Bucket: BUCKET,
-    key: `${filePath}`,
+    Key: `${filePath}`,
     Body: file
   }
 
