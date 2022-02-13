@@ -1,6 +1,10 @@
 const userController = require('../controllers/User');
+const { GraphQLUpload} = require('graphql-upload')
 
 const resolvers = {
+
+  Upload: GraphQLUpload,
+
   Query: {
     getUser: (_, { id, username }) => userController.getUser(id, username),
   },
