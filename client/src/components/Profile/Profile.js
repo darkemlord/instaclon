@@ -19,10 +19,12 @@ const Profile = (props) => {
     variables: { username }
   });
 
+
   if(loading) return null;
   if(error) return <UserNotFound />;
 
   const { getUser } = data
+  const { avatar } = getUser
 
   const handlerModal = (type) => {
     switch(type) {
@@ -42,7 +44,7 @@ const Profile = (props) => {
     <>
       <Grid className='profile'>
         <Grid.Column width={5} className='profile__left'>
-          <Image src={ImageNoFound} avatar onClick={() => username === auth.username && handlerModal('avatar')}/>
+          <Image src={avatar ? avatar :ImageNoFound} avatar onClick={() => username === auth.username && handlerModal('avatar')}/>
         </Grid.Column>
 
         <Grid.Column width={11} className='profile__right'>
