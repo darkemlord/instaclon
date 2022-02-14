@@ -67,6 +67,10 @@ const updateAvatar = async (file, ctx) => {
   try {
     const result = await awsUploadImage(fileData, imageName);
     await User.findByIdAndUpdate(id, { avatar: result});
+    return {
+      status: true,
+      urlAvatar: result
+    }
   } catch(err) {
     return {
       status: false,
