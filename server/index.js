@@ -4,6 +4,7 @@ const express = require('express');
 const { graphqlUploadExpress } = require('graphql-upload')
 const typeDefs = require('./gql/schema');
 const resolvers = require('./gql/resolvers');
+const jwt = require('jsonwebtoken');
 require('dotenv').config( { path: ".env" }); //calling the ENV
 
 mongoose.connect(process.env.BBDD, {
@@ -22,7 +23,24 @@ mongoose.connect(process.env.BBDD, {
 const server = async () => {
   const serverApollo = new ApolloServer({
     typeDefs,
-    resolvers
+    resolvers,
+    context: ({req}) => {
+      const token = req.headers.authorization;
+      if(token){
+        try {
+          const user = jwt.verify(
+            token.replace('Bearer ', ''),
+            process.env.SECRET_KEY
+          );
+          return {
+            user,
+          };
+        } catch(err) {
+          console.log(err)
+          throw new Error('invalid token')
+        }
+      }
+    }
   });
   await serverApollo.start();
   const app = express();

@@ -57,7 +57,7 @@ const getUser = async (id, username) => {
   return user
 }
 
-const updateAvatar = async (file) => {
+const updateAvatar = async (file, ctx) => {
   const { createReadStream, mimetype } = await file;
   const extension = mimetype.split('/')[1];
   const imageName = `avatar/avt.${extension}`
