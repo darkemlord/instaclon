@@ -30,7 +30,7 @@ const Profile = (props) => {
     switch(type) {
       case 'avatar':
         setTitleModal('Change Profile Picture');
-        setChildrenModal(<AvatarForm setShowModal={setShowModal}/>);
+        setChildrenModal(<AvatarForm setShowModal={setShowModal} auth={auth}/>);
         setShowModal(true);
         break;
       case 'header':
@@ -44,7 +44,7 @@ const Profile = (props) => {
     <>
       <Grid className='profile'>
         <Grid.Column width={5} className='profile__left'>
-          <Image src={avatar ? avatar :ImageNoFound} avatar onClick={() => username === auth.username && handlerModal('avatar')}/>
+          <Image src={avatar ? avatar : ImageNoFound} avatar onClick={() => username === auth.username && handlerModal('avatar')}/>
         </Grid.Column>
 
         <Grid.Column width={11} className='profile__right'>
