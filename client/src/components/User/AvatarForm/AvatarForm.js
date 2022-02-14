@@ -24,7 +24,7 @@ const AvatarForm = (props) => {
         setLoading(false)
       } else {
         setLoading(false);
-        setShowModal(false)
+        setShowModal(false);
       }
       return {
         status: true,
