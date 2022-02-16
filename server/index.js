@@ -1,7 +1,7 @@
 const { ApolloServer } = require('apollo-server-express');
 const mongoose = require('mongoose');
 const express = require('express');
-const { graphqlUploadExpress } = require('graphql-upload')
+const { graphqlUploadExpress } = require('graphql-upload');
 const typeDefs = require('./gql/schema');
 const resolvers = require('./gql/resolvers');
 const jwt = require('jsonwebtoken');

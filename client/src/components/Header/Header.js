@@ -1,11 +1,12 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { Container, Grid, Image } from 'semantic-ui-react';
-import Logo from '../../assets/images/instaclone.png'
+import Logo from '../../assets/images/instaclone.png';
 import './Header.scss';
 import RightHeader from './RightHeader';
 
 const Header = () => {
+
   return (
     <div className="header">
       <Container>
