@@ -40,3 +40,9 @@ export const UPDATE_AVATAR = gql `
   }
 }
 `
+
+export const DELETE_AVATAR = gql `
+  mutation Mutation {
+  deleteAvatar
+}
+`
