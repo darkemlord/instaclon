@@ -33,8 +33,10 @@ const Profile = (props) => {
         setChildrenModal(<AvatarForm setShowModal={setShowModal} auth={auth}/>);
         setShowModal(true);
         break;
-      case 'header':
-        console.log('emanuel')
+      case 'settings':
+        setTitleModal('');
+        setChildrenModal(<h2>profile settings</h2>);
+        setShowModal(true);
         break;
       default:
         break;
@@ -48,7 +50,7 @@ const Profile = (props) => {
         </Grid.Column>
 
         <Grid.Column width={11} className='profile__right'>
-          <HeaderProfile user= {getUser} auth={auth}/>
+          <HeaderProfile user= {getUser} auth={auth} handlerModal={handlerModal}/>
           <div>Followers</div>
           <div className='others'>
             <p className='name'>{getUser.name}</p>
