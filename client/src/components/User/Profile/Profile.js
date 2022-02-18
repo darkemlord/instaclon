@@ -7,6 +7,7 @@ import ImageNoFound from '../../../assets/images/avatar.png';
 import ModalBasic from '../../ModalBasic/ModalBasic';
 import AvatarForm from '../AvatarForm';
 import { useAuth } from '../../../hooks/useAuth';
+import HeaderProfile from './HeaderProfile';
 import './Profile.scss';
 
 const Profile = (props) => {
@@ -18,7 +19,6 @@ const Profile = (props) => {
   const { data, loading, error } = useQuery(GET_USER, {
     variables: { username }
   });
-
 
   if(loading) return null;
   if(error) return <UserNotFound />;
@@ -48,7 +48,7 @@ const Profile = (props) => {
         </Grid.Column>
 
         <Grid.Column width={11} className='profile__right'>
-          <div>Header Profile</div>
+          <HeaderProfile username={username}/>
           <div>Followers</div>
           <div className='others'>
             <p className='name'>{getUser.name}</p>
