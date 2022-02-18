@@ -1,5 +1,6 @@
 import React from 'react';
-import { Button } from 'semantic-ui-react'
+import { Button } from 'semantic-ui-react';
+import './SettingsForm.scss';
 
 const SettingsForm = () => {
   return (
