@@ -48,7 +48,7 @@ const Profile = (props) => {
         </Grid.Column>
 
         <Grid.Column width={11} className='profile__right'>
-          <HeaderProfile username={username}/>
+          <HeaderProfile user= {getUser} auth={auth}/>
           <div>Followers</div>
           <div className='others'>
             <p className='name'>{getUser.name}</p>
